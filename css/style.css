@@ -115,6 +115,9 @@ h4 { font-size: 1.15rem; font-weight: 500; }
 .section--dark .eyebrow::before { background: var(--c-brass-soft); }
 .section--dark .lede { color: rgba(245, 239, 227, 0.75); }
 .section--dark h2, .section--dark h3 { color: var(--c-cream); }
+.section--dark p { color: rgba(245, 239, 227, 0.75); }
+.section--dark .split__features li { color: rgba(245, 239, 227, 0.85); }
+.section--dark .split__features i { color: var(--c-brass-soft); }
 .section--dark a { color: var(--c-cream); }
 
 .section--parchment { background: var(--c-cream-2); }

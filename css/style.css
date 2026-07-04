@@ -255,6 +255,309 @@ h4 { font-size: 1.15rem; font-weight: 500; }
 }
 
 /* -------------------------------------------------------------------------
+   COURSE FACTS band — Par / Slope / Tees / Acres stat strip
+   ------------------------------------------------------------------------- */
+
+.facts {
+  background: var(--c-cream-2);
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--c-rule);
+}
+.facts__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-left: 1px solid var(--c-rule);
+}
+.facts__item {
+  padding: 1.6rem 1rem;
+  border-right: 1px solid var(--c-rule);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.facts__num {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  line-height: 1;
+  color: var(--c-green-deep);
+  font-weight: 400;
+}
+.facts__slash {
+  color: var(--c-brass);
+  margin: 0 0.18em;
+  font-size: 0.7em;
+  vertical-align: 0.05em;
+}
+.facts__label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-stone);
+}
+@media (max-width: 880px) { .facts__grid { grid-template-columns: repeat(3, 1fr); }
+  .facts__item:nth-child(3) { border-right: 0; }
+  .facts__item:nth-child(4), .facts__item:nth-child(5) { border-top: 1px solid var(--c-rule); }
+}
+@media (max-width: 540px) { .facts__grid { grid-template-columns: repeat(2, 1fr); }
+  .facts__item:nth-child(2) { border-right: 0; border-top: 1px solid var(--c-rule); }
+  .facts__item:nth-child(3), .facts__item:nth-child(5) { border-top: 1px solid var(--c-rule); }
+}
+
+/* -------------------------------------------------------------------------
+   TEE-DISTANCE cards — front 9 yardages by tee
+   ------------------------------------------------------------------------- */
+
+.tees {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+@media (max-width: 900px) { .tees { grid-template-columns: 1fr; } }
+.tees__card {
+  background: white;
+  border: 1px solid var(--c-rule);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.tees__head {
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.tees__name {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  color: var(--c-cream);
+  font-style: italic;
+  font-weight: 400;
+}
+.tees__meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 239, 227, 0.85);
+}
+.tees__head--blue { background: linear-gradient(180deg, #1F3D2B 0%, #142A1D 100%); }
+.tees__head--white { background: linear-gradient(180deg, #2D5440 0%, #1F3D2B 100%); }
+.tees__head--red { background: linear-gradient(180deg, #9C7B3F 0%, #6E5A30 100%); }
+.tees__holes {
+  list-style: none;
+  padding: 1.2rem 1.6rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem 0.8rem;
+}
+.tees__holes li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px dashed var(--c-rule);
+  padding: 0.35rem 0;
+  color: var(--c-green-deep);
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+.tees__holes li span {
+  font-family: var(--f-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--c-stone);
+  letter-spacing: 0.06em;
+}
+.tees__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 1.6rem;
+  margin-top: auto;
+  background: var(--c-cream);
+  border-top: 1px solid var(--c-rule);
+}
+.tees__foot span {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-stone);
+  font-weight: 600;
+}
+.tees__foot strong {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--c-green-deep);
+  font-weight: 500;
+}
+
+/* -------------------------------------------------------------------------
+   COURSE RULES — USGA / local columns
+   ------------------------------------------------------------------------- */
+
+.rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+}
+@media (max-width: 880px) { .rules { grid-template-columns: 1fr; gap: 1.6rem; } }
+.rules__col h4 {
+  font-family: var(--f-display);
+  font-size: 1.4rem;
+  color: var(--c-green-deep);
+  font-weight: 400;
+  font-style: italic;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--c-rule);
+}
+.rules__list {
+  list-style: none;
+  counter-reset: rules-counter;
+}
+.rules__list li {
+  counter-increment: rules-counter;
+  padding: 0.6rem 0 0.6rem 2.2rem;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--c-ink);
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--c-rule);
+}
+.rules__list li::before {
+  content: counter(rules-counter);
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 1.6rem;
+  text-align: left;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--c-brass);
+}
+.rules__note {
+  margin-top: 2.4rem;
+  padding: 1.4rem 1.6rem;
+  background: rgba(156, 123, 63, 0.12);
+  border-left: 3px solid var(--c-brass);
+  display: flex;
+  gap: 0.8rem;
+  font-size: 0.92rem;
+  color: var(--c-stone);
+}
+.rules__note i { color: var(--c-brass); font-size: 1.4rem; flex-shrink: 0; margin-top: 0.2rem; }
+.rules__note strong { color: var(--c-green-deep); }
+.rules__duck {
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+  background: var(--c-green-deep);
+  color: var(--c-cream);
+  display: flex;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  border-radius: 2px;
+}
+.rules__duck i { color: var(--c-brass-soft); font-size: 1.4rem; margin-top: 0.1rem; }
+.rules__duck strong { color: var(--c-brass-soft); }
+
+/* -------------------------------------------------------------------------
+   DOWNLOAD cards (scorecard + map)
+   ------------------------------------------------------------------------- */
+
+.dl-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2.4rem;
+}
+@media (max-width: 600px) { .dl-grid { grid-template-columns: 1fr; } }
+.dl-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.6rem;
+  background: white;
+  border: 1px solid var(--c-rule);
+  transition: all 0.25s ease;
+}
+.dl-card:hover { border-color: var(--c-brass); box-shadow: 0 8px 20px -12px rgba(20,42,29,0.15); }
+.dl-card > i:first-child {
+  font-size: 2rem;
+  color: var(--c-brass);
+}
+.dl-card > div { flex: 1; }
+.dl-card strong {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  color: var(--c-green-deep);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.dl-card span {
+  font-size: 0.85rem;
+  color: var(--c-stone);
+}
+.dl-card > i:last-child {
+  color: var(--c-green);
+  font-size: 1.4rem;
+}
+
+/* -------------------------------------------------------------------------
+   Events simple list (sample entries on homepage)
+   ------------------------------------------------------------------------- */
+
+.events__simple {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.event-stub {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  background: white;
+  border: 1px solid var(--c-rule);
+  border-left: 3px solid var(--c-brass);
+}
+.event-stub i {
+  color: var(--c-brass);
+  font-size: 1.4rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+.event-stub strong {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.2rem;
+  color: var(--c-green-deep);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.event-stub span {
+  font-size: 0.92rem;
+  color: var(--c-stone);
+  line-height: 1.5;
+}
+
+/* Sample variant for event-card date display (no specific date) */
+.event-card__date .day {
+  font-style: italic;
+  color: var(--c-brass-soft);
+  font-size: 1.6rem;
+  letter-spacing: 0.2em;
+}
+
+/* -------------------------------------------------------------------------
    Hero
    ------------------------------------------------------------------------- */
 

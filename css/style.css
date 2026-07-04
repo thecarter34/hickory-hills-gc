@@ -255,6 +255,139 @@ h4 { font-size: 1.15rem; font-weight: 500; }
 }
 
 /* -------------------------------------------------------------------------
+   COURSE GALLERY — image grid with mixed aspect ratios
+   ------------------------------------------------------------------------- */
+
+.gallery-section { padding: var(--s-6) 0; }
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+@media (max-width: 720px) { .gallery__grid { grid-template-columns: repeat(2, 1fr); } }
+
+.gallery__tile {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--c-cream-2);
+  border-radius: 2px;
+}
+.gallery__tile--wide { grid-column: span 3; aspect-ratio: 16 / 9; }
+.gallery__tile--wide + .gallery__tile { grid-column: span 3; }
+@media (max-width: 720px) {
+  .gallery__tile--wide { grid-column: span 2; aspect-ratio: 4 / 3; }
+  .gallery__tile--wide + .gallery__tile { grid-column: span 1; }
+}
+
+.gallery__tile img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.gallery__tile:hover img { transform: scale(1.05); }
+
+.gallery__tile figcaption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1rem 1.2rem;
+  font-size: 0.85rem;
+  color: var(--c-cream);
+  background: linear-gradient(180deg, transparent 0%, rgba(20,42,29,0.85) 100%);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.gallery__tile:hover figcaption { opacity: 1; transform: translateY(0); }
+
+.gallery__note {
+  margin-top: 1.6rem;
+  font-size: 0.92rem;
+  color: var(--c-stone);
+  text-align: center;
+}
+.gallery__note a { color: var(--c-green); border-bottom: 1px solid var(--c-brass); }
+
+/* -------------------------------------------------------------------------
+   COURSE CONDITIONS — linkout, no fabricated data
+   ------------------------------------------------------------------------- */
+
+.conditions {
+  padding: var(--s-4) 0;
+  background: var(--c-green-deep);
+  color: var(--c-cream);
+}
+.conditions__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--s-4);
+  align-items: center;
+}
+@media (max-width: 880px) { .conditions__inner { grid-template-columns: 1fr; gap: 2rem; } }
+.conditions__lead {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+}
+.conditions__lead > i {
+  font-size: 2.4rem;
+  color: var(--c-brass-soft);
+  margin-top: 0.4rem;
+}
+.conditions h2 { color: var(--c-cream); }
+.conditions .lede { color: rgba(245,239,227,0.8); font-size: 1.05rem; }
+.conditions .lede a { color: var(--c-brass-soft); }
+.conditions__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+@media (max-width: 880px) { .conditions__actions { flex-direction: row; flex-wrap: wrap; } }
+.conditions__actions .btn { width: 100%; justify-content: center; }
+
+/* -------------------------------------------------------------------------
+   POLICIES — dress code, payment, pro shop, food & beverage
+   ------------------------------------------------------------------------- */
+
+.policies { padding: var(--s-5) 0; }
+.policies__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+@media (max-width: 980px) { .policies__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .policies__grid { grid-template-columns: 1fr; } }
+.policies__tile {
+  padding: 1.6rem;
+  border-left: 3px solid var(--c-brass);
+  background: var(--c-cream-2);
+}
+.policies__tile i {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--c-green);
+  margin-bottom: 0.8rem;
+}
+.policies__tile h4 {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--c-green-deep);
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+.policies__tile p {
+  font-size: 0.92rem;
+  color: var(--c-stone);
+  line-height: 1.55;
+  margin: 0;
+}
+.policies__tile strong { color: var(--c-green-deep); }
+
+/* -------------------------------------------------------------------------
    SPECIAL OFFERS (current site has 4 active specials)
    ------------------------------------------------------------------------- */
 

@@ -1,0 +1,14 @@
+# Junk from iteration
+_screenshots/
+*.png.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Logs
+*.log

@@ -255,6 +255,143 @@ h4 { font-size: 1.15rem; font-weight: 500; }
 }
 
 /* -------------------------------------------------------------------------
+   SPECIAL OFFERS (current site has 4 active specials)
+   ------------------------------------------------------------------------- */
+
+.specials__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+@media (max-width: 980px) { .specials__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .specials__grid { grid-template-columns: 1fr; } }
+
+.specials__card {
+  background: white;
+  border: 1px solid var(--c-rule);
+  border-top: 3px solid var(--c-brass);
+  padding: 1.6rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.specials__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -16px rgba(20,42,29,0.18);
+}
+.specials__tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-green);
+  background: var(--c-cream-2);
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 0.8rem;
+}
+.specials__title {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--c-green-deep);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+.specials__desc {
+  font-size: 0.92rem;
+  color: var(--c-stone);
+  line-height: 1.5;
+}
+.specials__desc strong {
+  color: var(--c-green-deep);
+  font-family: var(--f-display);
+  font-style: italic;
+}
+
+.specials__sms {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.6rem;
+  background: white;
+  border: 1px solid var(--c-rule);
+  border-left: 3px solid var(--c-green);
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.specials__sms i {
+  font-size: 1.8rem;
+  color: var(--c-green);
+}
+.specials__sms strong {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  color: var(--c-green-deep);
+  font-weight: 500;
+}
+.specials__sms span {
+  font-size: 0.92rem;
+  color: var(--c-stone);
+}
+
+/* -------------------------------------------------------------------------
+   E-CLUB (newsletter signup — current site's repeating signup form)
+   ------------------------------------------------------------------------- */
+
+.eclub {
+  padding: var(--s-5) 0;
+}
+.eclub__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--s-4);
+  align-items: center;
+}
+@media (max-width: 880px) { .eclub__inner { grid-template-columns: 1fr; gap: 2rem; } }
+
+.eclub h2 { color: var(--c-cream); margin-top: 0.8rem; }
+.eclub .lede { color: rgba(245,239,227,0.75); }
+
+.eclub__form {
+  display: flex;
+  gap: 0.6rem;
+  background: rgba(245,239,227,0.08);
+  padding: 0.8rem;
+  border-radius: 2px;
+  border: 1px solid rgba(245,239,227,0.15);
+}
+.eclub__form input {
+  flex: 1;
+  background: white;
+  border: 0;
+  padding: 0.9rem 1.2rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--c-ink);
+  border-radius: 2px;
+}
+.eclub__form input:focus {
+  outline: 2px solid var(--c-brass);
+  outline-offset: -2px;
+}
+.eclub__form .btn { white-space: nowrap; padding: 0.9rem 1.4rem; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -------------------------------------------------------------------------
    COURSE FACTS band — Par / Slope / Tees / Acres stat strip
    ------------------------------------------------------------------------- */
 

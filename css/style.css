@@ -14,7 +14,7 @@
   --c-green-soft:  #2D5440;   /* lighter evergreen for subheads */
   --c-brass:       #9C7B3F;   /* aged brass accent */
   --c-brass-soft:  #B89B6E;   /* lighter brass for hairlines */
-  --c-stone:       #8B8478;   /* muted stone for captions */
+  --c-stone:       #666056;   /* muted dark-stone for body copy — WCAG AA */
   --c-rule:        #D8CFB8;   /* parchment hairline rule */
 
   /* Type */

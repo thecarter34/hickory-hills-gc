@@ -12,8 +12,9 @@
   --c-green:       #1F3D2B;   /* deep country-club evergreen */
   --c-green-deep:  #142A1D;   /* darker green for hover */
   --c-green-soft:  #2D5440;   /* lighter evergreen for subheads */
-  --c-brass:       #9C7B3F;   /* aged brass accent */
-  --c-brass-soft:  #B89B6E;   /* lighter brass for hairlines */
+  --c-brass:       #9C7B3F;   /* aged brass accent — for hairlines & small uppercase labels on light bg */
+  --c-brass-deep:  #6F5330;   /* darker brass for text on white and for brass CTA bg (WCAG AA on cream/cream-2/white) */
+  --c-brass-soft:  #B89B6E;   /* lighter brass for hairlines and accents on dark green */
   --c-stone:       #666056;   /* muted dark-stone for body copy — WCAG AA */
   --c-rule:        #D8CFB8;   /* parchment hairline rule */
 
@@ -340,6 +341,11 @@ h4 { font-size: 1.15rem; font-weight: 500; }
 .conditions h2 { color: var(--c-cream); }
 .conditions .lede { color: rgba(245,239,227,0.8); font-size: 1.05rem; }
 .conditions .lede a { color: var(--c-brass-soft); }
+/* WCAG AA override: .eyebrow defaults to --c-green which is 1.27x on the green-deep bg */
+.conditions .eyebrow { color: var(--c-brass-soft); }
+/* Ghost button sits on green-deep here — invert to cream/brass-soft instead of inline --c-green */
+.conditions .btn--ghost { color: var(--c-cream); border-color: rgba(245, 239, 227, 0.45); background: transparent; }
+.conditions .btn--ghost:hover { background: rgba(245, 239, 227, 0.08); border-color: var(--c-cream); color: var(--c-cream); }
 .conditions__actions {
   display: flex;
   flex-direction: column;
@@ -925,8 +931,8 @@ h4 { font-size: 1.15rem; font-weight: 500; }
 .btn--primary:hover { background: var(--c-green-deep); transform: translateY(-1px); }
 .btn--ghost { background: transparent; color: var(--c-cream); border: 1px solid rgba(245, 239, 227, 0.45); }
 .btn--ghost:hover { background: rgba(245, 239, 227, 0.08); border-color: var(--c-cream); }
-.btn--brass { background: var(--c-brass); color: var(--c-cream); }
-.btn--brass:hover { background: #87693A; }
+.btn--brass { background: var(--c-brass-deep); color: var(--c-cream); }
+.btn--brass:hover { background: #5A4423; }
 
 .btn--primary, .btn--brass { /* solid on light backgrounds */
   box-shadow: 0 6px 22px -10px rgba(20, 42, 29, 0.5);
@@ -1225,7 +1231,7 @@ h4 { font-size: 1.15rem; font-weight: 500; }
   font-size: 0.76rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--c-brass);
+  color: var(--c-brass-deep);
   font-weight: 600;
 }
 .league-card__name {
